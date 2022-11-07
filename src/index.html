@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do list</title>
+
+    <link rel="stylesheet" href="scss/main.scss">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <script defer src="js/main.js"></script>
+</head>
+<body>
+    
+    <main class="container">
+        <div class="title">
+            <h1>Todo List</h1>
+        </div>
+
+        <form class="form">
+            <input type="text" class="form__input" id="todo-input">
+            <button class="form__button" type="button" id="todo-btn">
+                <i class="bi bi-plus-lg"></i> 
+            </button> 
+        </form>
+
+        <div class="todo" id="todo-container">
+            <ul class="todo__list" id="todo-list">
+
+            </ul>
+
+        </div>
+    </main>
+    
+</body>
+</html>
