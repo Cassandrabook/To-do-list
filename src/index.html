@@ -13,15 +13,22 @@
 <body>
     
     <main class="container">
-        <div class="container__title">
-            <h1>Things To Do</h1>
+        <div class="title">
+            <h1>My To-do List</h1>
         </div>
 
-        <form class="container__form">
-            <input type="text" placeholder="New Todo" class="container__input" id="todo-input">
-            <button class="container__button" type="button" id="todo-btn">
+        <form class="form">
+            <input type="text" placeholder="Lägg till..." class="form__input" id="todo-input">
+            <button class="form__button" type="button" id="todo-btn">
                 <i class="bi bi-plus-lg"></i> 
             </button> 
+            <div class="form__select">
+                <select name="todos" class="form__selectTodo">
+                    <option value="all">Visa alla</option>
+                    <option value="all">Visa färdiga</option>
+                    <option value="all">Visa ofärdiga</option>
+                </select>
+            </div>
         </form>
 
         <div class="todo" id="todo-container">
