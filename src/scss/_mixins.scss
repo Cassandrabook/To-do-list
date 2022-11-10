@@ -1,0 +1,44 @@
+@use "colors" as c;
+
+@mixin form {
+    &__input, &__button{
+        background: c.$main-color;
+        border: none;
+        padding: 1rem;
+        font-size: 20px;
+    }
+
+    &__button{
+        color: c.$second-bgc-color;
+        background: c.$main-color;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    &__button:hover{
+        color: c.$main-color;
+        background: c.$second-bgc-color;
+    }
+}
+
+@mixin myTodos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__list{
+        min-width: 55%;
+        list-style: none;
+        color: c.$text-color;
+        font-size: 17px; 
+    }
+
+    &__item{ 
+        background: c.$main-color;
+        margin: 0.5rem;
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+        border-radius: 5px;
+    }
+}

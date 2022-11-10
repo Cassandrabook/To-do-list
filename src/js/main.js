@@ -1,9 +1,10 @@
+// import { todo } from "./models/todo";
+
 let todoList = document.getElementById("todo-list");
 let todoBtn = document.getElementById("todo-btn");
 
 todoBtn.addEventListener("click", addTodo);
 
-//Klass med objekt
 class Todo {
   constructor(todoName) {
     this.todoName = todoName;
@@ -19,10 +20,9 @@ let fifthTodo = new Todo("Ta hand om utemöblerna");
 
 let myTodos = [firstTodo, secoundTodo, thirdTodo, fourthTodo, fifthTodo];
 
-//for loop för min todos
 function createHtml() {
-    // saveToLs();
     todoList.innerHTML = "";
+
   for (let i = 0; i < myTodos.length; i++) {
     let todoLi = document.createElement("li");
     todoLi.classList.add("todo__item");
@@ -30,7 +30,6 @@ function createHtml() {
 
     if(myTodos[i].done === true) {
         todoLi.classList.toggle("complited");
-        
     }
 
     todoList.appendChild(todoLi);
@@ -58,16 +57,14 @@ function createHtml() {
     });
 
     function checkItem() {
-    //   todoLi.classList.toggle("complited");
       console.log(myTodos);
       myTodos[i].done = !myTodos[i].done;
-      createHtml();
+      createHtml(event);
     }
   }
 }
 
 function removeItem(removeItem) {
-    //   todoLi.remove();
       console.log(myTodos);
       myTodos.splice(removeItem, 1);
       createHtml();
@@ -75,7 +72,6 @@ function removeItem(removeItem) {
 
 createHtml();
 
-//funktion för min input knapp//
 function addTodo() {
   todoList.innerHTML = "";
 
@@ -88,6 +84,3 @@ function addTodo() {
   localStorage.setItem("myTodos", JSON.stringify(myTodos));
   createHtml();
 }
-
-
-
