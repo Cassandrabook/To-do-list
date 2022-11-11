@@ -2,7 +2,7 @@
 
 @mixin btnCompleted {
     &__btnCompleted{
-        margin-right: 7px;
+        padding-right: 7px;
         border: none;
         background: c.$main-color;
         cursor: pointer;
@@ -15,7 +15,7 @@
     }
 
     &__btnCompleted:hover{
-        color: rgb(4, 235, 23);
+        color: c.$color-chech;
     }
 }
 
@@ -32,6 +32,6 @@
         }
     }
     &__btnDelete:hover{
-        color: red;
+        color: c.$color-trash;
     }
 }

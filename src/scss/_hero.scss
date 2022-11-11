@@ -9,7 +9,7 @@
 }
 
 body{
-    background-image: linear-gradient(120deg, c.$first-bgc-color, c.$second-bgc-color);
+    background: c.$bg-color;
     color: c.$main-color;
     font-family: sans-serif;
     min-height: 100vh;
@@ -17,10 +17,11 @@ body{
 
 .container{
     border: 2px solid c.$main-color;
-    width: 50%;
+    width: 45%;
     margin: 2rem auto;
     margin-bottom: 2rem;
     padding-bottom: 2rem;
+    background-image: linear-gradient(120deg, c.$first-bgc-color, c.$second-bgc-color);
 }
 
 h1{

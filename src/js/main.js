@@ -1,16 +1,10 @@
-// import { todo } from "./models/todo";
+import { Todo } from "./models/todo";
 
 let todoList = document.getElementById("todo-list");
 let todoBtn = document.getElementById("todo-btn");
+let todoInput = document.getElementById("todo-input");
 
 todoBtn.addEventListener("click", addTodo);
-
-class Todo {
-  constructor(todoName) {
-    this.todoName = todoName;
-    this.done = false;
-  }
-}
 
 let firstTodo = new Todo("Fixa TV-bänken");
 let secoundTodo = new Todo("Rensa kylen och frysen");
@@ -59,28 +53,37 @@ function createHtml() {
     function checkItem() {
       console.log(myTodos);
       myTodos[i].done = !myTodos[i].done;
-      createHtml(event);
+      localStorage.setItem("myTodos", JSON.stringify(myTodos));
+      createHtml();
     }
   }
 }
 
 function removeItem(removeItem) {
-      console.log(myTodos);
       myTodos.splice(removeItem, 1);
+      localStorage.setItem("myTodos", JSON.stringify(myTodos));
       createHtml();
     }
 
 createHtml();
 
-function addTodo() {
-  todoList.innerHTML = "";
+function addTodo(e) {
+    e.preventDefault();
+    let newItem = new Todo(todoInput.value);
 
-  let todoInput = document.getElementById("todo-input");
-  let newItem = new Todo(todoInput.value);
-  todoInput.value = "";
-
+  if(todoInput.value === ""){
+    alert("OBS! Du måste fylla i rutan med text");
+  }else{
   myTodos.push(newItem);
-
-  localStorage.setItem("myTodos", JSON.stringify(myTodos));
   createHtml();
+  localStorage.setItem("myTodos", JSON.stringify(myTodos));
+  todoInput.value = "";
+  }
 }
+
+const getTodoFromLs = ()=>{
+    myTodos = JSON.parse(localStorage.getItem("myTodos"));
+    createHtml();
+}
+
+window.addEventListener("DOMContentLoaded", getTodoFromLs);
