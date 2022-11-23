@@ -81,9 +81,23 @@ function addTodo(e) {
   }
 }
 
-const getTodoFromLs = ()=>{
-    myTodos = JSON.parse(localStorage.getItem("myTodos"));
+// const getTodoFromLs = ()=>{
+//     myTodos = JSON.parse(localStorage.getItem("myTodos"));
+//     createHtml();
+// }
+
+function getFromLs(){
+  let fromLs = localStorage.getItem("myTodos");
+  let todoObj = JSON.parse(localStorage.getItem("myTodos"));
+  if(!fromLs){
     createHtml();
+  }else{
+    myTodos = todoObj.map((todo) => {
+      return new Todo(todo.todoName, todo.done);
+    });
+  }
 }
 
-window.addEventListener("DOMContentLoaded", getTodoFromLs);
+// window.addEventListener("DOMContentLoaded", getTodoFromLs);
+getFromLs();
+console.log(myTodos);
